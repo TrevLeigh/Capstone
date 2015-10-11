@@ -1,0 +1,28 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrevorHawkins13/Capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TrevorHawkins13/Capstone/issues"
+  },
+  "homepage": "https://github.com/TrevorHawkins13/Capstone#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "mongoose": "^4.1.10",
+    "morgan": "^1.6.1",
+    "stylus": "^0.52.4"
+  },
+  "devDependencies": {},
+  "description": ""
+}
