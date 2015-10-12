@@ -1,14 +1,5 @@
 extends ../includes/layout
 
-block main-content
-    .navbar.navbar-inverse.navbar-fixed-top
-        .container
-            .navbar-header
-                a.navbar-brand(href="/") DCY -Workout Regimen
-            .navbar-collapse.collapse
-                ul.nav.navbar-nav
-                    li 
-                        a(href="/") Home
-                        
+block main-content      
     section.content
        div(ng-view)

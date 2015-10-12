@@ -1,0 +1,11 @@
+extends ../includes/layout
+block main-content
+    section.content
+        div(ng-controller="myLoginCtrl")
+            .container
+                form
+                    .form-group
+                        input.form-control(placeholder="Username", ng-model="username")
+                    .form-group
+                        input.form-control(type = "password",placeholder="Password", ng-model="password")
+                    button.btn.btn-primary(ng-click="signin(username,password)") Log in
