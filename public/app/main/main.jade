@@ -2,9 +2,5 @@
     .jumbotron
         h1 {{myVar}}
         p The best FREE web workout regimen.
-        
-    .row
-        .col-md-6
-            div(ng-include="'/partials/main/featured-courses'")
-        .col-md-6
-            div(ng-include="'/partials/main/new-courses'")
+        form(action="/register")
+            button.btn.btn-primary(type="submit") Sign Up
