@@ -1,7 +1,5 @@
-section.content
-        div(ng-controller="myLoginCtrl")
-            .container
-                form
+ .container
+                form(action="/loginPost", method="POST")
                     .form-group
                         input.form-control(placeholder="Username", ng-model="username")
                     .form-group

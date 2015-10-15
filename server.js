@@ -24,7 +24,7 @@ passport.use(new LocalStrategy(
             }else{
                 return done(null, false);
             }
-        });
+        })
     }
 ));
 
@@ -41,7 +41,7 @@ passport.deserializeUser(function(id,done){
         }else{
             return done(null,false);
         }
-    });
+    })
 });
 require('./server/config/routes')(app);
 
