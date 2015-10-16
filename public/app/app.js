@@ -8,5 +8,9 @@ angular.module('app').config(function($routeProvider, $locationProvider){
     $routeProvider
         .when('/', {templateUrl: 'partials/main/main', controller: 'myMainCtrl'})
         .when('/login',{templateUrl:'partials/account/loginPartial',controller:'myLoginCtrl'})
-        .otherwise({redirectTo:'/'});
+        .when('/home',{templateUrl:'partials/main/homePartial',controller: 'myHomeCtrl'});
+});
+
+angular.module('app').controller('myHomeCtrl', function($scope){
+
 });

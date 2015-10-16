@@ -1,5 +1,5 @@
 doctype 
-html 
+html
     head
         title Capstone
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
@@ -12,9 +12,9 @@ html
                     .navbar-header
                         a.navbar-brand(href="/") DCY-Workout Regimen
                     .navbar-collapse.collapse
-                        ul.nav.navbar-nav
+                        ul.nav.navbar-nav.navbar-right(ng-hide="identity.isAuthenticated()")
                             li 
-                                a(href="/login") Login 
+                                a(href="/login", ng-hide="identity.isAuthenticated()") Login 
                                 //a(href="/register") Register
         
     body(ng-app='app')
