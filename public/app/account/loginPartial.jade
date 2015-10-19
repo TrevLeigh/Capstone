@@ -5,3 +5,7 @@
         .form-group
             input.form-control(type = "password",placeholder="Password", ng-model="password")
         button.btn.btn-primary(ng-click="signin(username,password)") Log in
+        a(href="/auth/facebook",class="btn btn-primary") Facebook
+            span.fa.fa-facebook
+    h1(ng-show="identity.isAuthenticated()") Welcome {{identity.currentUser.username}}
+        button.btn.btn-primary(ng-show="identity.isAuthenticated()", ng-click="signout()") Log off
