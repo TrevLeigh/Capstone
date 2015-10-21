@@ -24,19 +24,23 @@ module.exports = function(config){
     }
     var User = mongoose.model('User', userSchema);
     
-    User.find({}).exec(function(err, collection){
-        if(collection.length === 0){
-            var salt, hash;
-            salt = encrypt.createSalt();
-            hash = encrypt.hashPwd(salt, 'trev');
-            User.create({email: 'thawkins@neumont.edu', username:'Trev', salt: salt, hashed_pwd: hash, roles:['admin']});
-            salt = encrypt.createSalt();
-            hash = encrypt.hashPwd(salt, 'e-40');
-            User.create({email: 'njurado@neumont.edu', username:'E-40', salt: salt, hashed_pwd: hash, roles:[]});
-            salt = encrypt.createSalt();
-            hash = encrypt.hashPwd(salt, 'lois');
-            User.create({email:'lhenicke@neumont.edu', username:'Lois', salt: salt, hashed_pwd: hash});
-        }
+    var fbUserSchema = mongoose.Schema({
+        id: String,
+        token: String,
+        email: String,
+        username: String,
+        image: String
     });
+    var FbUser = mongoose.model('FbUser',fbUserSchema);
+    
+    var googleUserSchema = mongoose.Schema({
+        id: String,
+        token: String,
+        email: String,
+        username: String,
+        image: String
+    });
+    
+    var GoogleUser = mongoose.model('GoogleUser', googleUserSchema);
 }
 

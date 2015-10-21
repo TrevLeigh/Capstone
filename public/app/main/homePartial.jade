@@ -1,4 +1,6 @@
 .container
     h1 Home Page
-    h2 Welcome {{identity.currentUser.username}}
-    a(href="",ng-click="signout()") Log off
+    div
+        img(ng-src="{{identity.currentUser.image}}")
+        h1 {{identity.currentUser.username}}
+        a(href="",ng-click="signout()") Log off

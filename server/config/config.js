@@ -11,6 +11,15 @@ module.exports = {
         db: 'mongodb://localhost/capstone',
         port: process.env.PORT || 80
         
+    },
+    'facebookAuth' : {
+        'clientID'      : '1621174691482121', 
+        'clientSecret'  : 'e3bd24d178cc83aff8aded58478e413b', 
+        'callbackURL'   : 'http://localhost:3030/auth/facebook/callback'
+    },
+    'googleAuth' : {
+        'clientID'      : '382954964029-pj4p6t3fqjfj37f4fpi9ddebbo9r8jjp.apps.googleusercontent.com',
+        'clientSecret'  : '_AMopx8BDOIj0lA_1_lE9Cjr',
+        'callbackURL'   : 'http://localhost:3030/auth/google/callback'
     }
-
-}
+};

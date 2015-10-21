@@ -10,6 +10,7 @@ angular.module('app').factory('myAuth', function($http, myIdentity, $q, myUser){
                 dfd.resolve(true);
             }else{
                 dfd.resolve(false);
+                console.log(user);
             }
         });
             return dfd.promise;
