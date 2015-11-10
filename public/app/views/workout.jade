@@ -1,0 +1,62 @@
+doctype 
+html(ng-app='app')
+    head
+        title Capstone
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        link(rel="stylesheet", href="/css/site.css")
+        script(src="/app/workout/dynamicFields.js")
+        include ../../../server/includes/scripts
+    header
+        nav 
+            .navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        a.navbar-brand(href="/") DCY-Workout Regimen
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li 
+                                a(href="/login") Login 
+                                //a(href="/register") Register
+        
+    body(ng-controller='myWorkoutCtrl')
+        
+        .container
+            .well  
+                form.form-horizontal(name="workoutForm")
+                    fieldset    
+                        legend Create Workout
+                        .form-group
+                            label.col-md-2.control-label(for="category") Exercise Category:
+                            .col-md-10
+                                select.form-control(name="category", ng-model="category", ng-click="getData()")
+                                    option(value="All") All
+                                    option(value="Arms") Arms
+                                    option(value="Legs") Legs
+                                    option(value="Abs") Abs
+                                    option(value="Chest") Chest
+                                    option(value="Back") Back
+                                    option(value="Shoulders") Shoulders
+                                    option(value="Calves") Calves
+                        .form-group
+                            label.col-md-2.control-label(for="name") Exercise:
+                            .col-md-10
+                                select.form-control
+                                    option(ng-repeat="e in data") {{e.name}}
+                        .form-group
+                            label.col-md-2.control-label(for="description") Sets:
+                            .col-md-10
+                                input.form-control(id="sets",name="description", type="Number", ng-model="description", min="1", max="10", oninput="addFields()")
+                        .form-group
+                            label.col-md-2.control-label(for="equipment") Reps:
+                            .col-md-10(id="reps")
+                                
+                        .form-group
+                            .col-md-10.cold-md-offset-2
+                                .pull-right
+                                    button.btn.btn-primary(ng-click="create()") Submit
+    
+        
+        
+    footer.container.text-center
+        p &copy; 2013 UnluckyXIII Corp.

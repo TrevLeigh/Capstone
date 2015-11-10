@@ -1,4 +1,4 @@
-angular.module('app').controller('mySignupCtrl',function($scope, myUser, myNotifier, $location, myAuth){
+angular.module('app').controller('mySignupCtrl',function($scope, myUser, myNotifier, $window, myAuth){
     
     $scope.signup = function(){
         var newUserData = {
@@ -8,8 +8,7 @@ angular.module('app').controller('mySignupCtrl',function($scope, myUser, myNotif
         };
         
         myAuth.createUser(newUserData).then(function(){
-            myNotifier.notify('User account created!');
-            $location.path('/home');
+            $window.location.href='/home';
         },function(reason){
             myNotifier.error(reason);
         });

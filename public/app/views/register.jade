@@ -1,0 +1,50 @@
+doctype 
+html(ng-app='app')
+    head
+        title Capstone
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        link(rel="stylesheet", href="/css/site.css")
+        include ../../../server/includes/scripts
+    header
+        nav 
+            .navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        a.navbar-brand(href="/") DCY-Workout Regimen
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li 
+                                a(href="/login") Login 
+                                //a(href="/register") Register
+        
+    body(ng-controller='mySignupCtrl')
+        
+        .container
+            .well  
+                form.form-horizontal(name="signupForm")
+                    fieldset    
+                        legend Register
+                        .form-group
+                            label.col-md-2.control-label(for="email") Email
+                            .col-md-10
+                                input.form-control(name="email", type="email", placeholder="Email", ng-model="email", required)
+                        .form-group
+                            label.col-md-2.control-label(for="name") Username
+                            .col-md-10
+                                input.form-control(name="username", type="text", placeholder="Username", ng-model="username", required)
+                        .form-group
+                            label.col-md-2.control-label(for="password") Password
+                            .col-md-10
+                                input.form-control(name="password", type="password", placeholder="Password", ng-model="password", required)
+                        .form-group
+                            .col-md-10.cold-md-offset-2
+                                .pull-right
+                                    button.btn.btn-primary(ng-click="signup()") Submit
+                                    a.btn.btn-default(href="/") Cancel
+    
+        
+        
+    footer.container.text-center
+        p &copy; 2013 UnluckyXIII Corp.
+        

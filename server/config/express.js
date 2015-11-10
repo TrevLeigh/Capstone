@@ -6,7 +6,7 @@ var express = require('express'),
     passport = require('passport');
 
 module.exports = function(app, config){
-    app.set('views', config.rootPath + '/server/views');
+    app.set('views', config.rootPath + '/public/app/views');
     app.set('view engine', 'jade');
     app.use(logger('dev'));
     app.use(cookieParser());

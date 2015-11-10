@@ -1,0 +1,59 @@
+doctype 
+html(ng-app='app')
+    head
+        title Capstone
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        link(rel="stylesheet", href="/css/site.css")
+        include ../../../server/includes/scripts
+    header
+        nav 
+            .navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        a.navbar-brand(href="/") DCY-Workout Regimen
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li 
+                                a(href="/login") Login 
+                                //a(href="/register") Register
+        
+    body(ng-controller='myExerciseCtrl')
+        .container
+            .well  
+                form.form-horizontal(name="exerciseForm")
+                    fieldset    
+                        legend Create Exercise
+                        .form-group
+                            label.col-md-2.control-label(for="category") Exercise Category:
+                            .col-md-10
+                                select.form-control(name="category", ng-model="category")
+                                    option Arms
+                                    option Legs
+                                    option Abs
+                                    option Chest
+                                    option Back
+                                    option Shoulders
+                                    option Calves
+                        .form-group
+                            label.col-md-2.control-label(for="name") Exercise Name:
+                            .col-md-10
+                                input.form-control(name="name", type="text", ng-model="name", required)
+                        .form-group
+                            label.col-md-2.control-label(for="description") Exercise Description:
+                            .col-md-10
+                                textarea.form-control(name="description", type="String", ng-model="description", required)
+                        .form-group
+                            label.col-md-2.control-label(for="equipment") Exercise Equipment:
+                            .col-md-10
+                                input.form-control(name="equipment", type="String", ng-model="equipment")
+                        .form-group
+                            .col-md-10.cold-md-offset-2
+                                .pull-right
+                                    button.btn.btn-primary(ng-click="create()") Submit
+    
+        
+        
+    footer.container.text-center
+        p &copy; 2013 UnluckyXIII Corp.
+        
