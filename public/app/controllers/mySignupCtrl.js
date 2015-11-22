@@ -1,5 +1,5 @@
-angular.module('app').controller('mySignupCtrl',function($scope, myUser, myNotifier, $window, myAuth){
-    
+angular.module('app').controller('mySignupCtrl',function($scope, myUser, myNotifier, $window, myAuth, myIdentity){
+    $scope.identity = myIdentity;
     $scope.signup = function(){
         var newUserData = {
             email: $scope.email,

@@ -1,11 +1,12 @@
-angular.module('app').controller('myExerciseCtrl', function($scope,myNotifier, $window, myExercise, myExerciseFactory, $http, $resource, $routeParams){
-   
+angular.module('app').controller('myExerciseCtrl', function($scope,myNotifier, $window, myExercise, myExerciseFactory, $http, $resource, $routeParams,myIdentity,$route){
+   $scope.identity = myIdentity;
     $scope.create = function(){
         var newExerciseData = {
             name: $scope.name,
             description: $scope.description,
             equipment: $scope.equipment,
-            category: $scope.category
+            category: $scope.category,
+            owner: myIdentity.currentUser.username
         };
         
         myExerciseFactory.createExercise(newExerciseData).then(function(){
@@ -23,13 +24,35 @@ angular.module('app').controller('myExerciseCtrl', function($scope,myNotifier, $
         }); 
     }
     
+    $scope.edit = function(){
+        var exerciseData = {
+            name: $scope.name,
+            description: $scope.description,
+            equipment: $scope.equipment
+        };
+        
+        $http.put('/api/exercises/' + $routeParams.id,{
+            name: exerciseData.name,
+            description: exerciseData.description,
+            equipment: exerciseData.equipment
+        }). success(function(data){
+            myNotifier.notify('Exercise Edited');
+             $window.location.href="/#/exercises";
+        });
+    }
     
+    $scope.delete = function(params){
+        $http.delete('/api/exercises/' + params).success(function(data){
+            myNotifier.notify('Exercise Deleted');
+            $route.reload();
+            $window.location.href="/#/exercises";
+        });
+    }
     $scope.getSingleExercise = function(){
         $http.get('/api/exercises/' + $routeParams.id).success(function(response){
             $scope.item = response;
         });
     }
-    $scope.getSingleExercise($routeParams.id);
     $scope.getSingleExercise();
     $scope.getExercise();
     

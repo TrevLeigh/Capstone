@@ -45,14 +45,15 @@ module.exports = function(config){
     
     var regimenSchema = mongoose.Schema({
         name: String, 
-        workouts:[{name: String}],
-        startDate: Date,
-        endDate: Date
+        workouts:[String],
+        endDate: Date,
+        owner: String
     });
     
     var WorkoutRegimen = mongoose.model('Regimen', regimenSchema);
     
     var workoutSchema = mongoose.Schema({
+        name: String,
         owner: String,
         exercises:[{
             exercise: String,
@@ -66,7 +67,12 @@ module.exports = function(config){
     var exercizeSchema = mongoose.Schema({
             name: {
                 type: String,
-                required: true
+                required: true,
+                
+            },
+            owner:{
+                type: String,
+                required:true
             },
             equipment: {
                 type: String,
@@ -86,6 +92,11 @@ module.exports = function(config){
     });
     
     var Exercise = mongoose.model('Exercise', exercizeSchema);
+    
+    var downloadSchema = mongoose.Schema({
+        workout: [String],
+        owner: String
+    });
     
     Exercise.find({}).exec(function(err, collection){
         if(collection.length === 0){

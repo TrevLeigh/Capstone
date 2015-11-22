@@ -1,35 +1,48 @@
 doctype 
-html(ng-app='app')
+html(ng-controller="myLoginCtrl")
     head
         title Capstone
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
-        script(src="/app/workout/dynamicFields.js")
+        //script(src="/app/workout/dynamicFields.js")
         include ../../../server/includes/scripts
+        include ../../../server/includes/currentUser
     header
         nav 
             .navbar.navbar-inverse.navbar-fixed-top
                 .container
                     .navbar-header
-                        a.navbar-brand(href="/") DCY-Workout Regimen
-                    .navbar-collapse.collapse
+                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        ul.nav.navbar-nav
+                            li
+                                a(href="/#/exercises") Exercises
+                            li
+                                a(href="/#/workouts") Workouts
+                            li
+                                a Regimens
+                    .navbar-collapse.collapse(ng-controller="myLoginCtrl")
                         ul.nav.navbar-nav.navbar-right
                             li 
-                                a(href="/login") Login 
-                                //a(href="/register") Register
+                                a(href="/login",ng-hide="identity.isAuthenticated()") Login 
+                            li(class="dropdown",ng-show="identity.isAuthenticated()")
+                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
+                                    span.caret
+                                ul(class="dropdown-menu")
+                                    li
+                                        a(ng-click="signout()") Log Out
         
-    body(ng-controller='myWorkoutCtrl')
+    body
         
         .container
             .well  
                 form.form-horizontal(name="workoutForm")
                     fieldset    
-                        legend Create Workout
+                        legend Add Exercise
                         .form-group
                             label.col-md-2.control-label(for="category") Exercise Category:
                             .col-md-10
-                                select.form-control(name="category", ng-model="category", ng-click="getData()")
+                                select.form-control(name="category", ng-model="category",ng-change="getData()")
                                     option(value="All") All
                                     option(value="Arms") Arms
                                     option(value="Legs") Legs
@@ -39,17 +52,18 @@ html(ng-app='app')
                                     option(value="Shoulders") Shoulders
                                     option(value="Calves") Calves
                         .form-group
-                            label.col-md-2.control-label(for="name") Exercise:
+                            label.col-md-2.control-label(for="exercise") Exercise:
                             .col-md-10
-                                select.form-control
-                                    option(ng-repeat="e in data") {{e.name}}
+                                select.form-control(name="exercise", ng-model="exercise")
+                                    option(ng-repeat="e in e") {{e.name}}
                         .form-group
-                            label.col-md-2.control-label(for="description") Sets:
+                            label.col-md-2.control-label(for="sets") Sets:
                             .col-md-10
-                                input.form-control(id="sets",name="description", type="Number", ng-model="description", min="1", max="10", oninput="addFields()")
+                                input.form-control(id="sets",name="sets", type="Number", ng-model="sets", min="1", max="10", ng-change="addReps()")
                         .form-group
-                            label.col-md-2.control-label(for="equipment") Reps:
+                            label.col-md-2.control-label(for="reps") Reps:
                             .col-md-10(id="reps")
+                            
                                 
                         .form-group
                             .col-md-10.cold-md-offset-2

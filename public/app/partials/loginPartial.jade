@@ -1,12 +1,50 @@
-.container
-    form(ng-hide="identity.isAuthenticated()")
-        .form-group
-            input.form-control(placeholder="Username", ng-model="username")
-        .form-group
-            input.form-control(type = "password",placeholder="Password", ng-model="password")
-        button.btn.btn-primary(ng-click="signin(username,password)") Log in
-        a(href="/auth/facebook",class="btn btn-primary") Facebook
-        a(href="/auth/google",class="btn btn-primary") Google
-    img(ng-show="identity.isAuthenticated()",ng-src="{{identity.currentUser.image}}")
-    h1(ng-show="identity.isAuthenticated()") Welcome {{identity.currentUser.username}}
-        button.btn.btn-primary(ng-show="identity.isAuthenticated()", ng-click="signout()") Log off
+doctype 
+html(ng-controller="myLoginCtrl")
+    head
+        title Capstone
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        link(rel="stylesheet", href="/css/site.css")
+        include ../../../server/includes/scripts
+        include ../../../server/includes/currentUser
+    header
+        nav 
+            .navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        ul.nav.navbar-nav
+                            li
+                                a(href="/#/exercises") Exercises
+                            li
+                                a(href="/#/workouts") Workouts
+                            li
+                                a Regimens
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li 
+                                a(href="/#/login", ng-hide="identity.isAuthenticated()") Login 
+                            li(class="dropdown",ng-show="identity.isAuthenticated()")
+                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
+                                    span.caret
+                                ul(class="dropdown-menu")
+                                    li
+                                        a(ng-click="signout()") Log Out
+                            
+        
+    body
+        .container
+            form(ng-hide="identity.isAuthenticated()")
+                .form-group
+                    input.form-control(placeholder="Username", ng-model="username")
+                .form-group
+                    input.form-control(type = "password",placeholder="Password", ng-model="password")
+                button.btn.btn-primary(ng-click="signin(username,password)") Log in
+                a(href="/auth/facebook",class="btn btn-primary") Facebook
+                a(href="/auth/google",class="btn btn-primary") Google
+    
+        
+        
+    footer.container.text-center
+        p &copy; 2013 UnluckyXIII Corp.
+        

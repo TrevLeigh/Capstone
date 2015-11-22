@@ -5,18 +5,15 @@ html(ng-app='app')
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
+        link(rel="stylesheet",href="/vendor/angular-chart.js/dist/angular-chart.css")
         include ../../../server/includes/scripts
+        include ../../../server/includes/currentUser
     header
         nav 
             .navbar.navbar-inverse.navbar-fixed-top
                 .container
                     .navbar-header
-                        a.navbar-brand(href="/") DCY-Workout Regimen
-                    .navbar-collapse.collapse
-                        ul.nav.navbar-nav.navbar-right(ng-hide="identity.isAuthenticated()")
-                            li 
-                                a(href="/login", ng-hide="identity.isAuthenticated()") Login 
-                                //a(href="/register") Register
+                        a.navbar-brand(href="/#/") DCY-Workout Regimen
         
    div(ng-view)
         

@@ -2,10 +2,12 @@
 var auth = require('./auth'),
     users = require('../controllers/users'),
     exercises = require('../controllers/exercises'),
+    workouts = require('../controllers/workouts'),
     passport = require('passport'),
     mongoose = require('mongoose'),
+    regimens = require('../controllers/regimens'),
     fbUser = mongoose.model('FbUser'),
-     Exercise = require('mongoose').model('Exercise');
+    Exercise = require('mongoose').model('Exercise');
 
 module.exports = function(app){
     
@@ -14,21 +16,23 @@ module.exports = function(app){
     
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/home',
-            failureRedirect : '/'
+            successRedirect : '/#/',
+            failureRedirect : '/#/login'
         }));
     
     app.get('/auth/google', passport.authenticate('google',{scope: ['profile','email']}));
     
     app.get('/auth/google/callback',
         passport.authenticate('google', {
-            successRedirect : '/home',
-            failureRedirect : '/'
+            successRedirect : '/#/',
+            failureRedirect : '/#/login'
         }));
     
     app.get('/api/users', users.getUsers);
     
     app.get('/api/exercises', exercises.getExercises);
+    
+    
     app.get('/api/exercises/arms', exercises.getArmsExercise);
     app.get('/api/exercises/legs', exercises.getLegsExercise);
     app.get('/api/exercises/abs', exercises.getAbsExercise);
@@ -38,50 +42,40 @@ module.exports = function(app){
     app.get('/api/exercises/calves', exercises.getCalvesExercise);
     app.get('/api/exercises/:id', exercises.getExerciseById);
     
-    app.get('/exercises/:id', function(req,res){
-        res.render('index');
-       
-    });
+    app.post('/api/exercises', exercises.createExercise);
+    app.put('/api/exercises/:id',exercises.editExercise);
+    app.delete('/api/exercises/:id',exercises.deleteExercise);
+    
+    app.get('/api/workouts',workouts.getWorkouts);
+    app.get('/api/workouts/:id', workouts.getWorkoutsById);
+    
+    app.put('/api/workouts/:id', workouts.editWorkout);
+    app.delete('/api/workouts/:id',workouts.deleteWorkout);
+    app.post('/api/workouts',workouts.createWorkout);
+    
+    app.get('/api/regimens',regimens.getRegimens);
+    app.get('/api/regimens/:id',regimens.getRegimensById);
+    
+    app.put('/api/regimens/:id', regimens.editRegimen);
+    app.delete('/api/regimens/:id',regimens.deleteRegimen);
+    app.post('/api/regimens',regimens.createRegimens);
     
     
     app.post('/api/users', users.createUser);
     
-    app.post('/api/exercises', exercises.createExercise);
-    
-    app.get('/exercise/create',function(req,res){
-        res.render('createExercise');
-    });
-    
-    app.get('/exercise',function(req,res){
-        res.render('exercise');
-    });
-    
-    app.get('/workout', function(req,res){
-        res.render('workout',{
-            bootstrappedUser: req.user
-        });
-    });
-    app.get('/login', function(req,res){
-        res.render('login',{
-           bootstrappedUser: req.user 
-        });
-    });
-    app.get('/home',function(req,res){
-        res.render('home',{
-           bootstrappedUser: req.user 
-        });
-    });
-    
-    app.get('/signup', function(req, res){
-        res.render('register');
-    });
-    
-    app.get('/', function(req, res){
-        res.render('index');
-    });
 
     app.get('/partials/*', function(req,res){
         res.render('../partials/' + req.params[0]);
+    });
+    app.get('/home',function(req,res){
+        res.render('home',{
+            bootstrappedUser: req.user
+        });
+    });
+    app.get('*', function(req,res){
+        res.render('index',{
+            bootstrappedUser: req.user
+        });
     });
     
     app.post('/loginPost', auth.authenticate);

@@ -6,6 +6,7 @@ angular.module('app').controller('myLoginCtrl', function($scope, $http, myNotifi
     myAuth.authenticateUser(username,password).then(function(success){
             if(success){
                myNotifier.notify('You have successfully signed in!');
+                $window.location.href='/#/';
             }
             else{
                 myNotifier.error('Username/Password is wrong!');

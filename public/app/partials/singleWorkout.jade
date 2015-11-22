@@ -1,0 +1,51 @@
+doctype 
+header(ng-controller="myLoginCtrl")
+        nav 
+            .navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        ul.nav.navbar-nav
+                            li
+                                a(href="/#/exercises") Exercises
+                            li
+                                a(href="/#/workouts") Workouts
+                            li
+                                a Regimens
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right(ng-controller="myLoginCtrl")
+                            li 
+                                a(href="/login",ng-hide="identity.isAuthenticated()") Login 
+                            li(class="dropdown",ng-show="identity.isAuthenticated()")
+                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
+                                    span.caret
+                                ul(class="dropdown-menu")
+                                    li
+                                        a(ng-click="signout()") Log Out
+        
+    body
+        
+        .container
+            .well  
+                form.form-horizontal(name="workoutForm")
+                    fieldset    
+                        legend Workout
+                            div
+                                h1 {{item.name}}
+                                div(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")
+                                    h3 {{item.exercises[i].exercise}}
+                                    h4 {{item.exercises[i].sets}}
+                                    h5(ng-repeat="r in [0,1,2,3,4,5,6,7,8,9]") {{item.exercises[i].reps[r]}}
+                                p {{item.owner}}
+                                a(href="/#/workout/{{item._id}}/edit")
+                                    button.btn.btn-primary Edit
+                                a(href="/#/workouts/{{item._id}}/addExercise")    
+                                    button.btn.btn-primary Add Exercise
+                                button.btn.btn-primary Download
+                                button.btn.btn-danger(ng-click="delete()") Delete
+                                
+    
+        
+        
+    footer.container.text-center
+        p &copy; 2013 UnluckyXIII Corp.

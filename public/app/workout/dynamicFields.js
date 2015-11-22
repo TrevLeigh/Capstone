@@ -1,22 +1,24 @@
-function addFields(){
+/*function addFields(){
     var number = document.getElementById("sets").value;
     
-    var container = document.getElementById("reps");
+    var rep = document.getElementById("reps");
     
-    while (container.hasChildNodes()) {
-                container.removeChild(container.lastChild);
+    while (rep.hasChildNodes()) {
+                rep.removeChild(rep.lastChild);
             }
     for(i=0;i<number;i++){
         
         var input = document.createElement("input");
         
+        input.setAttribute("name","Reps");
+        input.setAttribute("ng-model", "Reps");
         input.setAttribute("class", "form-control");
-        input.type = "Number";
-        input.name = "rep" + i;
+        input.setAttribute("min", 1);
+        input.setAttribute("type","Number");
         input.required = true;
-        container.appendChild(input);
+        rep.appendChild(input);
         
-        container.appendChild(document.createElement("br"));
+        rep.appendChild(document.createElement("br"));
         
     }
-}
+}*/

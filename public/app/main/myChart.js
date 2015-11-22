@@ -1,6 +1,5 @@
-
-            var data = {
-    labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+var data = {
+    labels: ["Monday", "Tuesday", "Wedensday", "Thursday", "Friday", "Saturday", "Sunday"],
     datasets: [
         {
             label: "My First dataset",
@@ -11,24 +10,16 @@
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: [65, 59, 90, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 96, 27, 100]
         }
     ]
-};
+}
 
 
-            window.onload = function(){
-                var canvas = document.getElementById("canvas-holder");
-                var ctx = canvas.getContext("2d");
-                window.myPie = new Chart(ctx).Radar(data);
-            };
+window.onload = function(){
+    var canvas = document.getElementById("canvas-holder");
+    var ctx = canvas.getContext("2d");
+    window.myPie = new Chart(ctx).Line(data,{
+        responsive:true
+    });
+}
 

@@ -1,0 +1,63 @@
+doctype 
+html
+    head
+        title Capstone
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        link(rel="stylesheet", href="/css/site.css")
+        include ../../../server/includes/scripts
+    header
+        nav 
+            .navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        ul.nav.navbar-nav
+                            li
+                                a(href="/#/exercises") Exercises
+                            li
+                                a(href="/#/workouts") Workouts
+                            li
+                                a Regimens
+                    .navbar-collapse.collapse(ng-controller="myLoginCtrl")
+                        ul.nav.navbar-nav.navbar-right
+                            li 
+                                a(href="/login",ng-hide="identity.isAuthenticated()") Login 
+                            li(class="dropdown",ng-show="identity.isAuthenticated()")
+                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
+                                    span.caret
+                                ul(class="dropdown-menu")
+                                    li
+                                        a(ng-click="signout()") Log Out
+        
+    body
+        .container
+            .well  
+                form.form-horizontal(name="regimenForm")
+                    fieldset    
+                        legend Create Regimen
+                        .form-group
+                            label.col-md-2.control-label(for="name") Regimen Name:
+                            .col-md-10
+                                input.form-control(name="name", ng-model="name") 
+                        .form-group
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                input.form-control(type="datetime-local", name="end", ng-model="end")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="workout", type="String", ng-model="workout", required)
+                                    option(ng-repeat="w in data") {{w.name}}
+                            .col-md-10(id="workouts")
+                        .form-group
+                            button.btn.btn-primary(ng-click="addWorkoutFields()") Add Workout
+                        .form-group
+                            .col-md-10.cold-md-offset-2
+                                .pull-right
+                                    button.btn.btn-primary(ng-click="create()") Submit
+    
+        
+        
+    footer.container.text-center
+        p &copy; 2013 UnluckyXIII Corp.

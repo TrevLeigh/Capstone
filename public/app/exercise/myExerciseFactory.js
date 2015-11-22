@@ -11,5 +11,7 @@ angular.module('app').factory('myExerciseFactory',function($http, myExercise ,$q
             });
             return dfd.promise;
         }
+        
+        
     }
 });
