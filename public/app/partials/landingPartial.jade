@@ -4,7 +4,7 @@ html(ng-controller="myLoginCtrl")
         title Capstone
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
-        link(rel="stylesheet", href="/css/site.css")
+        link(rel="stylesheet", href="/css/landingPage.css")
         include ../../../server/includes/scripts
         include ../../../server/includes/currentUser
         
@@ -13,7 +13,7 @@ header
             .navbar.navbar-inverse.navbar-fixed-top
                 .container
                     .navbar-header
-                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        a.navbar-brand(href="#/") Single Point
                         ul.nav.navbar-nav
                             li
                                 a(href="/#/exercises") Exercises
@@ -36,7 +36,8 @@ body
         .jumbotron
             h1 Single Point
             p The best FREE web workout regimen.
-            a(href="#/signup") Sign Up
+            a(href="#/signup") 
+                button.btn Sign Up
             
  footer.container.text-center
         p &copy; 2013 UnluckyXIII Corp.

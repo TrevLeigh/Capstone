@@ -5,13 +5,14 @@ html
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
+        link(rel="stylesheet", href="/css/exerciseStyling.css")
         include ../../../server/includes/scripts
     header
         nav 
             .navbar.navbar-inverse.navbar-fixed-top
                 .container
                     .navbar-header
-                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        a.navbar-brand(href="#/") Single Point
                         ul.nav.navbar-nav
                             li
                                 a(href="/#/exercises") Exercises
@@ -38,14 +39,14 @@ html
                     fieldset    
                         legend Exercises
                         .form-group
-                            div(ng-repeat="e in data")
+                            div.well(ng-repeat="e in data")
                                 a(href="/#/exercises/{{e._id}}")
                                     h3 {{e.name}}
                                 p {{e.equipment}}
                                 a(href="/#/exercises/{{e._id}}/edit",ng-show="identity.currentUser.username == '{{e.owner}}'")
                                     button.btn.btn-primary
                                         span.glyphicon.glyphicon-pencil
-                                button.btn.btn-primary(ng-show="identity.currentUser.username == '{{e.owner}}'", ng-click="delete(e._id)")
+                                button.btn.btn-danger(ng-show="identity.currentUser.username == '{{e.owner}}'", ng-click="delete(e._id)")
                                     span.glyphicon.glyphicon-trash
     
         

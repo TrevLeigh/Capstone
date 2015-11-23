@@ -1,0 +1,44 @@
+nav{
+    background-color: #000;
+    color:#fff;
+}
+
+.navbar-inverse{
+    background-color: #000;
+}
+
+.navbar-inverse > .active{
+    color: #000;
+    background: #FFF;
+}
+body{
+    background-image:url("../images/photo_39443_20150720.jpg");
+    background-size: 2000px 900px;
+    background-repeat: no-repeat;
+    background-color: #000;
+}
+.btn-primary{
+    background-color: #808080;
+    border:none;
+}
+.well{
+    position:relative;
+    top: 50px;
+    background-color:#000;
+    border: none;
+    color:#808080;
+    margin-left:200px;
+    margin-right:200px;
+}
+legend{
+    color:#808080;
+}
+
+.form-group input{
+    position:relative;
+    top: 5px;
+}
+
+button{
+    background-color: #000;
+    

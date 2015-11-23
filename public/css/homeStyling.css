@@ -1,0 +1,29 @@
+
+nav{
+    background-color: #000;
+    color:#fff;
+}
+
+.navbar-inverse{
+    background-color: #000;
+}
+
+.navbar-inverse > .active{
+    color: #000;
+    background: #FFF;
+}
+
+body{
+    background-color: #363636;
+}
+canvas.chart.chart-line{
+    color:#fff;
+}
+.btn-primary{
+    background-color: #808080;
+    border:none;
+}
+
+div{
+    color:#fff;
+}

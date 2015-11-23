@@ -5,6 +5,7 @@ html(ng-controller="myLoginCtrl")
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
+        link(rel="stylesheet", href="/css/workoutStyling.css")
         //script(src="/app/workout/dynamicFields.js")
         include ../../../server/includes/scripts
     header
@@ -42,7 +43,7 @@ html(ng-controller="myLoginCtrl")
                     fieldset    
                         legend Workouts
                         .form-group
-                            div(ng-repeat="e in data")
+                            div.well(ng-repeat="e in data")
                                 a(href="/#/workouts/{{e._id}}")
                                     h2 {{e.name}}
                                 h3(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")      {{e.exercises[i].exercise}}

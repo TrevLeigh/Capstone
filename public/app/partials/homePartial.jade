@@ -6,6 +6,7 @@ html
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
         link(rel="stylesheet",href="/vendor/angular-chart.js/dist/angular-chart.css")
+        link(rel="stylesheet",href="/css/homeStyling.css")
         include ../../../server/includes/scripts
         include ../../../server/includes/currentUser
         
@@ -34,7 +35,7 @@ html
                                         a(ng-click="signout()") Log Out
         
     body
-        canvas.chart.chart-line(id="line" chart-data="i" chart-labels="labels" chart-legend=
+        canvas.chart.chart-line(id="line" height="10px" width="10px" chart-data="i" chart-labels="labels" chart-legend=
 "true" chart-series="series" chart-click="onClick")
             
         

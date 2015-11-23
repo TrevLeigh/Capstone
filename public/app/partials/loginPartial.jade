@@ -5,6 +5,8 @@ html(ng-controller="myLoginCtrl")
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
+        link(rel="stylesheet", href="/css/loginForm.css")
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
         include ../../../server/includes/scripts
         include ../../../server/includes/currentUser
     header
@@ -12,7 +14,7 @@ html(ng-controller="myLoginCtrl")
             .navbar.navbar-inverse.navbar-fixed-top
                 .container
                     .navbar-header
-                        a.navbar-brand(href="#/") DCY-Workout Regimen
+                        a.navbar-brand(href="#/") Single Point
                         ul.nav.navbar-nav
                             li
                                 a(href="/#/exercises") Exercises
@@ -34,14 +36,23 @@ html(ng-controller="myLoginCtrl")
         
     body
         .container
-            form(ng-hide="identity.isAuthenticated()")
-                .form-group
-                    input.form-control(placeholder="Username", ng-model="username")
-                .form-group
-                    input.form-control(type = "password",placeholder="Password", ng-model="password")
-                button.btn.btn-primary(ng-click="signin(username,password)") Log in
-                a(href="/auth/facebook",class="btn btn-primary") Facebook
-                a(href="/auth/google",class="btn btn-primary") Google
+            .well
+                form.form-horizontal(ng-hide="identity.isAuthenticated()")
+                    fieldset
+                        legend Login With
+                            .form-group
+                                a(href="/auth/facebook", id="facebook") 
+                                    button.btn.btn-primary(id="facebookButton")
+                                        i.fa.fa-facebook-official
+                                a(href="/auth/google", id="google")
+                                    button.btn.btn-primary(id="googleButton")
+                                        i.fa.fa-google-plus-square
+                        h1 Sign In
+                        .form-group
+                            input.form-control(placeholder="Username", ng-model="username")
+                        .form-group
+                            input.form-control(type = "password",placeholder="Password", ng-model="password")
+                        button.btn.btn-primary.pull-right(ng-click="signin(username,password)") Log in
     
         
         

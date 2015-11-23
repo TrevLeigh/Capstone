@@ -1,0 +1,40 @@
+nav{
+    background-color: #000;
+    color:#fff;
+}
+
+.navbar-inverse{
+    background-color: #000;
+}
+
+.navbar-inverse > .active{
+    color: #000;
+    background: #FFF;
+}
+body{
+    background-color: #363636;
+}
+.btn-primary{
+
+}
+.well{
+    position:relative;
+    top: 50px;
+    border: none;
+    margin-left:200px;
+    margin-right:200px;
+}
+legend{
+
+}
+
+.form-group input{
+    position:relative;
+    top: 5px;
+    margin-left: 50px;
+    width: 500px;
+}
+
+button{
+
+}

@@ -1,3 +1,7 @@
+.navbar-inverse > .active{
+    color: #000;
+    background: #FFF;
+}
 li{
     display:inline;
 }
@@ -12,8 +16,10 @@ button{
 }
 
 footer{
+    position:relative;
     padding-left: 15px;
     padding-right: 15px;
+    top: 450px;
 }
 
 footer p{
