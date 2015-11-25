@@ -8,7 +8,7 @@ module.exports = {
     },
     production: {
         rootPath: rootPath,
-        db: 'mongodb://localhost/capstone',
+        db: 'mongodb://thawkins:capstone@ds057254.mongolab.com:57254/capstone',
         port: process.env.PORT || 80
         
     },

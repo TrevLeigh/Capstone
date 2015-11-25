@@ -25,6 +25,7 @@ exports.createWorkout = function(req,res,next){
     
 };
 
+
 exports.editWorkout = function(req,res){
     Workout.findOne({_id: req.params.id}).exec(function(err,workout){
             workout.name = req.body.name;
