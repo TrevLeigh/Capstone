@@ -9,6 +9,12 @@ angular.module('app').controller('myExerciseCtrl', function($scope,myNotifier, $
             owner: myIdentity.currentUser.username
         };
         
+        $scope.init = function(){
+        if(!$scope.identity.isAuthenticated()){
+            window.location.href="localhost:3030/#/login";
+        }
+    }
+        
         myExerciseFactory.createExercise(newExerciseData).then(function(){
             myNotifier.notify('Exercise Created!');
             $window.location.href="/exercise";

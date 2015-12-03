@@ -7,29 +7,6 @@ html
         link(rel="stylesheet", href="/css/site.css")
         link(rel="stylesheet", href="/css/exerciseStyling.css")
         include ../../../server/includes/scripts
-    header
-        nav 
-            .navbar.navbar-inverse.navbar-fixed-top
-                .container
-                    .navbar-header
-                        a.navbar-brand(href="#/") Single Point
-                        ul.nav.navbar-nav
-                            li
-                                a(href="/#/exercises") Exercises
-                            li
-                                a(href="/#/workouts") Workouts
-                            li
-                                a Regimens
-                    .navbar-collapse.collapse(ng-controller="myLoginCtrl")
-                        ul.nav.navbar-nav.navbar-right
-                            li 
-                                a(href="/login",ng-hide="identity.isAuthenticated()") Login 
-                            li(class="dropdown",ng-show="identity.isAuthenticated()")
-                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
-                                    span.caret
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(ng-click="signout()") Log Out
         
     body
         
@@ -50,7 +27,4 @@ html
                                     span.glyphicon.glyphicon-trash
     
         
-        
-    footer.container.text-center
-        p &copy; 2013 UnluckyXIII Corp.
         

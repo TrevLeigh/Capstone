@@ -1,5 +1,5 @@
 doctype 
-html(ng-controller="myLoginCtrl")
+html
     head
         title Capstone
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
@@ -8,29 +8,6 @@ html(ng-controller="myLoginCtrl")
         include ../../../server/includes/scripts
         include ../../../server/includes/currentUser
         
-header
-        nav 
-            .navbar.navbar-inverse.navbar-fixed-top
-                .container
-                    .navbar-header
-                        a.navbar-brand(href="#/") Single Point
-                        ul.nav.navbar-nav
-                            li
-                                a(href="/#/exercises") Exercises
-                            li
-                                a(href="/#/workouts") Workouts
-                            li
-                                a Regimens
-                    .navbar-collapse.collapse
-                        ul.nav.navbar-nav.navbar-right
-                            li 
-                                a(href="/#/login", ng-hide="identity.isAuthenticated()") Login 
-                            li(class="dropdown",ng-show="identity.isAuthenticated()")
-                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
-                                    span.caret
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(ng-click="signout()") Log Out
 body                                
     .container 
         .jumbotron
@@ -39,5 +16,3 @@ body
             a(href="#/signup") 
                 button.btn Sign Up
             
- footer.container.text-center
-        p &copy; 2013 UnluckyXIII Corp.

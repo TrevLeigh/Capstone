@@ -1,5 +1,5 @@
 doctype 
-html(ng-controller="myLoginCtrl")
+html
     head
         title Capstone
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
@@ -8,32 +8,6 @@ html(ng-controller="myLoginCtrl")
         link(rel="stylesheet", href="/css/formStyling.css")
         //script(src="/app/workout/dynamicFields.js")
         include ../../../server/includes/scripts
-     header
-        nav 
-            .navbar.navbar-inverse.navbar-fixed-top
-                .container
-                    .navbar-header
-                        a.navbar-brand(href="#/") DCY-Workout Regimen
-                        ul.nav.navbar-nav
-                            li
-                                a Exercises
-                            li
-                                a Workouts
-                            li
-                                a Regimens
-                    .navbar-collapse.collapse
-                        ul.nav.navbar-nav.navbar-right(ng-controller="myLoginCtrl")
-                            li 
-                                a(href="/login",ng-hide="identity.isAuthenticated()") Login 
-                            li(class="dropdown",ng-show="identity.isAuthenticated()")
-                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
-                                    span.caret
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(ng-click="signout()") Log Out
-                                ul.dropdown-menu
-                                    li  
-                                        a Log Out
         
     body
         
@@ -48,6 +22,3 @@ html(ng-controller="myLoginCtrl")
                                 input.form-control(name="name",type="text",ng-model="name")
                 button.btn.btn-primary(ng-click="editRegimenName()") Edit Regimen
         
-        
-    footer.container.text-center
-        p &copy; 2013 UnluckyXIII Corp.

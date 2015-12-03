@@ -24,6 +24,12 @@ exports.createRegimens = function(req,res){
     });
 };
 
+exports.addData = function(req,res){
+    Regimen.findOne({_id: req.params.id},function(err,regimen){
+        regimen.data = req.body.data;
+    });
+};
+
 exports.editRegimen = function(req,res){
     Regimen.findOne({_id: req.params.id},function(err,regimen){
         regimen.name = req.body.name;
