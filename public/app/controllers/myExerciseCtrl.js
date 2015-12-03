@@ -17,7 +17,7 @@ angular.module('app').controller('myExerciseCtrl', function($scope,myNotifier, $
         
         myExerciseFactory.createExercise(newExerciseData).then(function(){
             myNotifier.notify('Exercise Created!');
-            $window.location.href="/exercise";
+            $window.location.href="/#/exercise";
         }, function(reason){
             myNotifier.error(reason);
         });

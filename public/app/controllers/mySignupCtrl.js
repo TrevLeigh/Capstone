@@ -8,7 +8,7 @@ angular.module('app').controller('mySignupCtrl',function($scope, myUser, myNotif
         };
         
         myAuth.createUser(newUserData).then(function(){
-            $window.location.href='/home';
+            $window.location.href='/#/home';
         },function(reason){
             myNotifier.error(reason);
         });
