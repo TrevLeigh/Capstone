@@ -16,7 +16,7 @@ module.exports = function(app){
     
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/#/',
+            successRedirect : '/#/home',
             failureRedirect : '/#/login'
         }));
     
@@ -24,7 +24,7 @@ module.exports = function(app){
     
     app.get('/auth/google/callback',
         passport.authenticate('google', {
-            successRedirect : '/#/',
+            successRedirect : '/#/home',
             failureRedirect : '/#/login'
         }));
     
