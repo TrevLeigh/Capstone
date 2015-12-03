@@ -17,10 +17,10 @@ html
                     fieldset
                         legend Login With
                             .form-group
-                                a(href="/auth/facebook")
+                                a(ng-href="/auth/facebook")
                                     button.btn.btn-primary(id="facebookButton") Facebook
                                         i.fa.fa-facebook-official
-                                a(href="/auth/google", id="google")
+                                a(ng-href="/auth/google", id="google")
                                     button.btn.btn-primary(id="googleButton") Google
                                         i.fa.fa-google-plus-square
                         h1 Sign In
@@ -29,5 +29,7 @@ html
                         .form-group
                             input.form-control(type = "password",placeholder="Password", ng-model="password")
                         button.btn.btn-primary.pull-right(ng-click="signin(username,password)") Log in
+                        p have an account?
+                        a(href="/#/signup") Register!
     
         

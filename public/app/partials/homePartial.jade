@@ -18,38 +18,45 @@ html
         
         div.regimen 
             section.firstSection
-                h1 Monday
+                div.day
+                    h1 Monday
                 h3 {{mon.exercises[0].exercise}}
                 h4 Set: {{mon.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{mon.exercises[0].reps[i]}}
             section.secondSection
-                h1 Tuesday
+                div.day
+                    h1 Tuesday
                 h3 {{tues.exercises[0].exercise}}
                 h4 Set: {{tues.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{tues.exercises[0].reps[i]}}
                 
             section.thirdSection
-                h1 Wedensday
+                div.day
+                    h1 Wedensday
                 h3 {{wed.exercises[0].exercise}}
                 h4 Set: {{wed.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{wed.exercises[0].reps[i]}}
             section.fourthSection
-                h1 Thursday
+                div.day
+                    h1 Thursday
                 h3 {{thur.exercises[0].exercise}}
                 h4 Set: {{thur.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{thur.exercises[0].reps[i]}}
             section.fifthSection
-                h1 Friday
+                div.day
+                    h1 Friday
                 h3 {{friday.exercises[0].exercise}}
                 h4 Set: {{friday.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{friday.exercises[0].reps[i]}}
             section.sixthSection
-                h1 Saturday
+                div.day
+                    h1 Saturday
                 h3 {{sat.exercises[0].exercise}}
                 h4 Set: {{sat.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{sat.exercises[0].reps[i]}}
             section.seventhSection
-                h1 Sunday
+                div.day
+                    h1 Sunday
                 h3 {{sun.exercises[0].exercise}}
                 h4 Set: {{sun.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{sun.exercises[0].reps[i]}}

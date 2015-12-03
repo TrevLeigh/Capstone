@@ -30,4 +30,41 @@ div{
 
 section{
     border: 1px solid #fff;
+    float:left;
+    padding-right: 50px;
+    height: 230px;
+    position: relative;
+    left: 50px;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+section h1{
+    position: relative;
+    text-align: center;
+}
+
+section h3{
+    position: relative;
+    left: 25px;
+}
+section h4{
+    position: relative;
+    left: 25px;
+}
+
+section.sixthSection{
+    position: relative;
+}
+
+section.seventhSection{
+    position: relative;
+
+}
+
+div.day{
+    border-bottom: solid 1px #fff;
+    position:relative;
+    left: 25px;
 }
