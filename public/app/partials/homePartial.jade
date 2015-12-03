@@ -10,29 +10,6 @@ html
         include ../../../server/includes/scripts
         include ../../../server/includes/currentUser
         
-    header
-        nav 
-            .navbar.navbar-inverse.navbar-fixed-top
-                .container
-                    .navbar-header
-                        a.navbar-brand(href="/#/") DCY-Workout Regimen
-                        ul.nav.navbar-nav
-                            li
-                                a(href="/#/exercises") Exercises
-                            li
-                                a(href="/#/workouts") Workouts
-                            li
-                                a Regimens
-                    .navbar-collapse.collapse
-                        ul.nav.navbar-nav.navbar-right(ng-controller="myLoginCtrl")
-                            li 
-                                a(href="/login", ng-hide="identity.isAuthenticated()") Login 
-                            li(class="dropdown",ng-show="identity.isAuthenticated()")
-                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
-                                    span.caret
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(ng-click="signout()") Log Out
         
     body
         canvas.chart.chart-line(id="line" height="10px" width="10px" chart-data="i" chart-labels="labels" chart-legend=
@@ -42,19 +19,38 @@ html
         div.regimen 
             section.firstSection
                 h1 Monday
+                h3 {{mon.exercises[0].exercise}}
+                h4 Set: {{mon.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{mon.exercises[0].reps[i]}}
             section.secondSection
                 h1 Tuesday
+                h3 {{tues.exercises[0].exercise}}
+                h4 Set: {{tues.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{tues.exercises[0].reps[i]}}
+                
             section.thirdSection
                 h1 Wedensday
+                h3 {{wed.exercises[0].exercise}}
+                h4 Set: {{wed.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{wed.exercises[0].reps[i]}}
             section.fourthSection
                 h1 Thursday
+                h3 {{thur.exercises[0].exercise}}
+                h4 Set: {{thur.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{thur.exercises[0].reps[i]}}
             section.fifthSection
                 h1 Friday
+                h3 {{friday.exercises[0].exercise}}
+                h4 Set: {{friday.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{friday.exercises[0].reps[i]}}
             section.sixthSection
                 h1 Saturday
+                h3 {{sat.exercises[0].exercise}}
+                h4 Set: {{sat.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{sat.exercises[0].reps[i]}}
             section.seventhSection
                 h1 Sunday
-       
+                h3 {{sun.exercises[0].exercise}}
+                h4 Set: {{sun.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{sun.exercises[0].reps[i]}}
         
-    footer.container.text-center
-        p &copy; 2013 UnluckyXIII Corp.

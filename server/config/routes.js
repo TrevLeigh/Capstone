@@ -29,7 +29,9 @@ module.exports = function(app){
         }));
     
     app.get('/api/users', users.getUsers);
-    
+    app.get('/api/users/:id', users.getUsersById);
+    app.put('/api/users/:id', users.editUser);
+    app.put('/api/users/:id/add',users.addData);
     app.get('/api/exercises', exercises.getExercises);
     
     
@@ -49,7 +51,7 @@ module.exports = function(app){
     app.get('/api/workouts',workouts.getWorkouts);
     app.get('/api/workouts/:id', workouts.getWorkoutsById);
     
-    app.put('/api/workouts/:id', workouts.editWorkout);
+    app.put('/api/workouts/:id', workouts.shareWorkout);
     app.delete('/api/workouts/:id',workouts.deleteWorkout);
     app.post('/api/workouts',workouts.createWorkout);
     
@@ -57,6 +59,7 @@ module.exports = function(app){
     app.get('/api/regimens/:id',regimens.getRegimensById);
     
     app.put('/api/regimens/:id', regimens.editRegimen);
+    app.put('/api/regimens/:id/add',regimens.addData);
     app.delete('/api/regimens/:id',regimens.deleteRegimen);
     app.post('/api/regimens',regimens.createRegimens);
     
@@ -67,14 +70,10 @@ module.exports = function(app){
     app.get('/partials/*', function(req,res){
         res.render('../partials/' + req.params[0]);
     });
-    app.get('/home',function(req,res){
-        res.render('home',{
-            bootstrappedUser: req.user
-        });
-    });
     app.get('*', function(req,res){
         res.render('index',{
-            bootstrappedUser: req.user
+            bootstrappedUser: req.user,
+            bootstrappedRegimen: req.regimen
         });
     });
     

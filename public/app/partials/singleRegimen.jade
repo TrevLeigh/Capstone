@@ -8,29 +8,6 @@ html
             link(rel="stylesheet", href="/css/regimenStyle.css")
             //script(src="/app/workout/dynamicFields.js")
             include ../../../server/includes/scripts
-    header(ng-controller="myLoginCtrl")
-            nav 
-                .navbar.navbar-inverse.navbar-fixed-top
-                    .container
-                        .navbar-header
-                            a.navbar-brand(href="#/") DCY-Workout Regimen
-                            ul.nav.navbar-nav
-                                li
-                                    a(href="/#/exercises") Exercises
-                                li
-                                    a(href="/#/workouts") Workouts
-                                li
-                                    a Regimens
-                        .navbar-collapse.collapse
-                            ul.nav.navbar-nav.navbar-right(ng-controller="myLoginCtrl")
-                                li 
-                                    a(href="/login",ng-hide="identity.isAuthenticated()") Login 
-                                li(class="dropdown",ng-show="identity.isAuthenticated()")
-                                    a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
-                                        span.caret
-                                    ul(class="dropdown-menu")
-                                        li
-                                            a(ng-click="signout()") Log Out
 
         body
 
@@ -41,14 +18,9 @@ html
                             legend Regimen
                                 div
                                     h1 {{item.name}}
-                                        button.btn.btn-primary(ng-click="editRegimenName()") Edit Name
-                                    a(href="/#/regimens/{{item._id}}/edit")
-                                        button.btn.btn-primary Edit
-                                    button.btn.btn-primary Set
+                                    h2 {{item.workouts}}
+
+                                    button.btn.btn-primary(ng-click="set()") Set
                                     button.btn.btn-danger(ng-click="delete()") Delete
 
 
-
-
-        footer.container.text-center
-            p &copy; 2013 UnluckyXIII Corp.

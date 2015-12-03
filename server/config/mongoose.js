@@ -15,7 +15,10 @@ module.exports = function(config){
         username: String,
         salt: String,
         hashed_pwd: String,
-        roles: [String]
+        roles: [String],
+        regimen: {type: mongoose.Schema.ObjectId, ref: 'Regimen'},
+        chartData:[{type:Number}],
+        downloadedWorkouts: [{type: mongoose.Schema.ObjectId, ref:'Workout'}]
     });
     userSchema.methods = {
         authenticate: function(passwordToMatch){
@@ -29,7 +32,8 @@ module.exports = function(config){
         token: String,
         email: String,
         username: String,
-        image: String
+        image: String,
+        regimen: {type: mongoose.Schema.ObjectId, ref: 'Regimen'}
     });
     var FbUser = mongoose.model('FbUser',fbUserSchema);
     
@@ -38,15 +42,17 @@ module.exports = function(config){
         token: String,
         email: String,
         username: String,
-        image: String
+        image: String,
+        regimen: {type: mongoose.Schema.ObjectId, ref: 'Regimen'}
     });
     
     var GoogleUser = mongoose.model('GoogleUser', googleUserSchema);
     
     var regimenSchema = mongoose.Schema({
         name: String, 
-        workouts:[String],
-        endDate: Date,
+        workouts:[{type: mongoose.Schema.ObjectId, ref: 'Workout'}],
+        endDate: [Date],
+        data: [Number],
         owner: String
     });
     
@@ -59,7 +65,8 @@ module.exports = function(config){
             exercise: String,
             sets: Number,
             reps: [Number]
-        }]
+        }],
+        shared: Boolean
     });
     
     var Workout = mongoose.model('Workout', workoutSchema);

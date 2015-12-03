@@ -25,17 +25,23 @@ exports.createWorkout = function(req,res,next){
     
 };
 
-
-exports.editWorkout = function(req,res){
-    Workout.findOne({_id: req.params.id}).exec(function(err,workout){
-            workout.name = req.body.name;
-            for(var i =0; i < req.body.exercises.length; i++){
-                workout.exercises[i].exercise = req.body.exercise;
-                workout.exercises[i].sets = req.body.sets;
-                for(var y =0; y < req.body.exercises[i].reps.length; y++){
-                    workout.exercises[i].reps = req.body.reps[y];
-                }
+exports.downloadWorkout = function(req,res){
+    Workout.findOne({_id: req.params.id},function(err,workout){
+            workout.shared = req.body.shared;
+        workout.save(function(err){
+            if(!err){
+                console.log("updated");
+            }else{
+                console.log(err);
             }
+            res.send(workout);
+        });
+    });
+};
+
+exports.shareWorkout = function(req,res){
+    Workout.findOne({_id: req.params.id},function(err,workout){
+            workout.shared = req.body.shared;
         workout.save(function(err){
             if(!err){
                 console.log("updated");

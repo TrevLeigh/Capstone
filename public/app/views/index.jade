@@ -8,12 +8,33 @@ html(ng-app='app')
         link(rel="stylesheet",href="/vendor/angular-chart.js/dist/angular-chart.css")
         include ../../../server/includes/scripts
         include ../../../server/includes/currentUser
-    header
+        include ../../../server/includes/currentRegimen
+    header(ng-controller="myLoginCtrl")
         nav 
             .navbar.navbar-inverse.navbar-fixed-top
                 .container
                     .navbar-header
-                        a.navbar-brand(href="/#/") Single Point
+                        a.navbar-brand(ng-hide="identity.isAuthenticated()" href="/#/") Single Point
+                        a.navbar-brand(ng-show="identity.isAuthenticated()" href="/#/home") Single Point
+                        ul.nav.navbar-nav
+                            li
+                                a(ng-show="identity.isAuthenticated()" href="/#/home") Home
+                            li
+                                a(ng-show="identity.isAuthenticated()" href="/#/exercises") Exercises
+                            li
+                                a(ng-show="identity.isAuthenticated()" href="/#/workouts") Workouts
+                            li
+                                a(ng-show="identity.isAuthenticated()" href="/#/regimens") Regimens
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li 
+                                a(href="/#/login",ng-hide="identity.isAuthenticated()") Login 
+                            li.dropdown(ng-show="identity.isAuthenticated()")
+                                a.dropdown-toggle(data-toggle="dropdown" role="button" aria-haspopup=" true" aria-expanded="false" ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
+                                    span.caret
+                                ul.dropdown-menu
+                                    li
+                                        a(ng-click="signout()") Log Out
         
    div(ng-view)
         

@@ -6,30 +6,8 @@ html
         link(rel="stylesheet", href="/vendor/toastr/toastr.css")
         link(rel="stylesheet", href="/css/site.css")
         link(rel="stylesheet", href="/css/formStyling.css")
+        link(rel="stylesheet", href="/vendor/angular-bootstrap/ui-bootstrap-csp.css")
         include ../../../server/includes/scripts
-    header
-        nav 
-            .navbar.navbar-inverse.navbar-fixed-top
-                .container
-                    .navbar-header
-                        a.navbar-brand(href="#/") DCY-Workout Regimen
-                        ul.nav.navbar-nav
-                            li
-                                a(href="/#/exercises") Exercises
-                            li
-                                a(href="/#/workouts") Workouts
-                            li
-                                a Regimens
-                    .navbar-collapse.collapse(ng-controller="myLoginCtrl")
-                        ul.nav.navbar-nav.navbar-right
-                            li 
-                                a(href="/login",ng-hide="identity.isAuthenticated()") Login 
-                            li(class="dropdown",ng-show="identity.isAuthenticated()")
-                                a(class="dropdown-toggle",data-toggle="dropdown",ng-show="identity.isAuthenticated()") {{identity.currentUser.username}}
-                                    span.caret
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(ng-click="signout()") Log Out
         
     body
         .container
@@ -41,24 +19,98 @@ html
                             label.col-md-2.control-label(for="name") Regimen Name:
                             .col-md-10
                                 input.form-control(name="name", ng-model="name") 
+                    filedset
+                        legend Monday
                         .form-group
                             label.col-md-2.control-label(for="date") Date To Complete:
                             .col-md-10
-                                input.form-control(type="datetime-local", name="end", ng-model="end")
+                                div
+                                    uib-timepicker(ng-model="mondayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
                         .form-group
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
-                                select.form-control(name="workout", type="String", ng-model="workout", required)
-                                    option(ng-repeat="w in data") {{w.name}}
+                                select.form-control(name="mondayWorkout", type="String", ng-model="mondayWorkout", required)
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
+                    fieldset
+                        legend Tuesday
                         .form-group
-                            button.btn.btn-primary(ng-click="addWorkoutFields()") Add Workout
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                div
+                                    uib-timepicker(ng-model="tuesdayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="tuesdayWorkout", type="String", ng-model="tuesdayWorkout", required)
+                                    option(ng-repeat="w in data", value="{{w._id}}") {{w.name}}
+                            .col-md-10(id="workouts")
+                    fieldset
+                        legend Wedensday
+                        .form-group
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                div
+                                    uib-timepicker(ng-model="wedensdayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="wedensdayWorkout", type="String", ng-model="wedensdayWorkout", required)
+                                    option(ng-repeat="w in data", value="{{w._id}}") {{w.name}}
+                            .col-md-10(id="workouts")
+                    fieldset
+                        legend Thursday
+                        .form-group
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                div
+                                    uib-timepicker(ng-model="thursdayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="thursday@orkout", type="String", ng-model="thursdayWorkout", required)
+                                    option(ng-repeat="w in data", value="{{w._id}}") {{w.name}}
+                            .col-md-10(id="workouts")
+                    fieldset
+                        legend Friday
+                        .form-group
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                div
+                                    uib-timepicker(ng-model="fridayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="fridayWorkout", type="String", ng-model="friWorkout", required)
+                                    option(ng-repeat="w in data",value="{{w._id}}") {{w.name}}
+                            .col-md-10(id="workouts")
+                    fieldset
+                        legend Saturday
+                        .form-group
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                div
+                                    uib-timepicker(ng-model="saturdayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="saturdayWorkout", type="String", ng-model="saturdayWorkout", required)
+                                    option(ng-repeat="w in data",value="{{w._id}}") {{w.name}}
+                            .col-md-10(id="workouts")
+                    fieldset
+                        legend Sunday 
+                        .form-group
+                            label.col-md-2.control-label(for="date") Date To Complete:
+                            .col-md-10
+                                div
+                                    uib-timepicker(ng-model="sundayTime", ng-change="changed()", hour-step="hstep", minute-step="mstep")
+                        .form-group
+                            label.col-md-2.control-label(for="workouts") Select Workout:
+                            .col-md-10
+                                select.form-control(name="sundayWorkout", type="String", ng-model="sundayWorkout", required)
+                                    option(ng-repeat="w in data",value="{{w._id}}") {{w.name}}
+                            .col-md-10(id="workouts")
                         .form-group
                             .col-md-10.cold-md-offset-2
                                 .pull-right
                                     button.btn.btn-primary(ng-click="create()") Submit
-    
-        
-        
-    footer.container.text-center
-        p &copy; 2013 UnluckyXIII Corp.

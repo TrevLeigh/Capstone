@@ -1,9 +1,10 @@
-angular.module('app', ['ngRoute', 'ngResource', 'chart.js']);
+angular.module('app', ['ngRoute', 'ngResource', 'chart.js','ui.bootstrap']);
 
 angular.module('app').config(function($routeProvider){
     $routeProvider
         .when('/',{templateUrl:'/partials/landingPartial',controller:'myLoginCtrl'})
         .when('/home',{templateUrl:'/partials/homePartial',controller:'myRegimenCtrl'})
+        .when('/home/add',{templateUrl:'/partials/addPartial',controller:'myRegimenCtrl'})
         .when('/login',{templateUrl:'/partials/loginPartial',controller:'myLoginCtrl'})
         .when('/signup',{templateUrl:'/partials/registerPartial',controller:'mySignupCtrl'})
         .when('/exercises',{templateUrl:'/partials/exercisesPartial',controller:'myExerciseCtrl'})
@@ -11,6 +12,7 @@ angular.module('app').config(function($routeProvider){
         .when('/exercises/:id', { templateUrl:'/partials/singleExercise',controller: 'myExerciseCtrl'})
         .when('/exercises/:id/edit',{templateUrl:'/partials/editExercise',controller: 'myExerciseCtrl'})
         .when('/workouts',{templateUrl:'/partials/workoutsPartial',controller:'myWorkoutCtrl'})
+        .when('/workouts/shared',{templateUrl:'/partials/sharedWorkoutPartial',controller:'myWorkoutCtrl'})
         .when('/workouts/:id',{templateUrl:'/partials/singleWorkout', controller:'myWorkoutCtrl'})
         .when('/workouts/:id/edit',{templateUrl:'/partials/editWorkout',controller:'myWorkoutCtrl'})
         .when('/workouts/:id/addExercise',{templateUrl:'/partials/addExercise',controller:'myWorkoutCtrl'})

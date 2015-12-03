@@ -1,7 +1,7 @@
 angular.module('app').controller('myWorkoutCtrl',function($scope, myNotifier, $window, $http, myWorkoutFactory, myIdentity, $routeParams,$compile,$route ){
     
     $scope.identity = myIdentity;
-    
+    $scope.workouts = [];
     $scope.getData = function(){
         if($scope.category === "All"){
             $http.get('/api/exercises').success(function(response){
@@ -52,43 +52,33 @@ angular.module('app').controller('myWorkoutCtrl',function($scope, myNotifier, $w
                 exercises: [{exercise:$scope.exercise,
                 sets:$scope.sets,
                 reps:[$scope.reps0,$scope.reps1,$scope.reps2,$scope.reps3,$scope.reps4,$scope.reps5,$scope.reps6,$scope.reps7,$scope.reps8,$scope.reps9]}],
-                owner: myIdentity.currentUser.username
+                owner: myIdentity.currentUser.username,
+                shared: false
             };
         
         myWorkoutFactory.createWorkout(newWorkoutData).then(function(){
             myNotifier.notify('Workout Created!');
-            $window.location.href="/api/workouts";
+            $window.location.href="/#/workouts";
         }, function(reason){
             myNotifier.error(reason);
         });
         
     }
     
-//    $scope.addExercise = function(){
-//        
-//        $http.put('api/workouts/' + $routeParams.id,{
-//            exercises:[{
-//            exercise: $scope.exercise,
-//                       sets: $scope.sets,
-//                       reps: [$scope.reps0,$scope.reps1,$scope.reps2,$scope.reps3,$scope.reps4,$scope.reps5,$scope.reps6,$scope.reps7,$scope.reps8,$scope.reps9]
-//        }]
-//        }).success(function(data){
-//            myNotifier.notify('Exercise Added');
-//            $window.location.href="/#/workouts";
-//        });
-//    }
-    
-    $scope.edit = function(){
+    $scope.share = function(){
+        var workoutData = {
+            name: 'name Changed',
+            shared: true
+        };
         $http.put('/api/workouts/' + $routeParams.id,{
-            name: $scope.name,
-            exercises: [{exercise:$scope.exercise,
-                        sets:$scope.sets,
-                        reps:[$scope.reps0,$scope.reps1,$scope.reps2,$scope.reps3,$scope.reps4,$scope.reps5,$scope.reps6,$scope.reps7,$scope.reps8,$scope.reps9]}]
+            name: workoutData.name,
+            shared: workoutData.shared
         }).success(function(data){
-            myNotifier.notify('Workout Edited');
+            myNotifier.notify("Workout has been shared!");
             $window.location.href="/#/workouts";
         });
     }
+    
     
     $scope.delete = function(){
         $http.delete('/api/workouts/' + $routeParams.id).success(function(data){
@@ -98,7 +88,14 @@ angular.module('app').controller('myWorkoutCtrl',function($scope, myNotifier, $w
         });
     }
     
-        
+    $scope.download = function(){
+        $http.get('/api/workouts/' + $routeParams.id).success(function(data){
+            $scope.workouts.push(data._id);
+            $http.put('/api/users/' + myIdentity.currentUser._id,{
+                downloadedWorkouts: workouts
+            });
+        });
+    }
     
     $scope.addReps = function(){
     var number = document.getElementById("sets").value;

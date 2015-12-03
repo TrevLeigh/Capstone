@@ -25,3 +25,39 @@ exports.createUser = function(req,res,next){
         });
     });
 };
+
+exports.getUsersById = function(req,res){
+    User.findOne({_id: req.params.id}).exec(function(err,user){
+        res.send(user);
+    });
+};
+
+exports.addData = function(req,res){
+    User.findOne({_id: req.params.id}).exec(function(err,user){
+        user.chartData = req.body.data;
+        
+        user.save(function(err){
+            if(!err){
+                console.log("data added");
+            }else{
+                console.log(err);
+            }
+            res.send(user);
+        });
+    });
+};
+
+exports.editUser = function(req,res){
+    User.findOne({_id: req.params.id}).exec(function(err,user){
+        user.regimen = req.body.regimen;
+        
+        user.save(function(err){
+            if(!err){
+                console.log("updated");
+            }else{
+                console.log(err);
+            }
+            res.send(user);
+        });
+    });
+};

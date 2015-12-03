@@ -1,5 +1,11 @@
-angular.module('app').controller('myLoginCtrl', function($scope, $http, myNotifier,myIdentity, myAuth,$location){
+angular.module('app').controller('myLoginCtrl', function($scope, $http, myNotifier,myIdentity, myAuth,$location,$window){
     $scope.identity = myIdentity;
+    
+    $scope.init = function(){
+        if($scope.identity.isAuthenticated()){
+            window.location.href="localhost:3030/#/home";
+        }
+    }
     $scope.signin = function(username,password){
         console.log(name);
         console.log(password);
