@@ -13,8 +13,8 @@ module.exports = {
         
     },
     'facebookAuth' : {
-        'clientID'      : '959587974114904', 
-        'clientSecret'  : '13b7a6af6e1a792c4bf79deb2f181ce9', 
+        'clientID'      : '146461855715058', 
+        'clientSecret'  : 'ed18284513ffee651416b8286e8973c6', 
         'callbackURL'   : 'https://singlepoint.herokuapp.com/auth/facebook/callback'
     },
     'googleAuth' : {
