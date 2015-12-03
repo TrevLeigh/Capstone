@@ -53,10 +53,15 @@ button{
 }
 
 #facebook{
-    padding-right: 10px;
-    padding-left: 300px;
+   position: relative;
+    left: 210px;
 
+}
+i{
+    position:relative;
+    left: 5px;
 }
 #google{
     position:relative;
+    left: 250px;
 }
