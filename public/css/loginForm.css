@@ -7,10 +7,6 @@ nav{
     background-color: #000;
 }
 
-.navbar-inverse > .active{
-    color: #000;
-    background: #FFF;
-}
 body{
     background-image:url("../images/photo_39443_20150720.jpg");
     background-size: 2000px 900px;
@@ -29,6 +25,27 @@ body{
     color:#808080;
     margin-left:200px;
     margin-right:200px;
+}
+@media only screen and (min-width : 768px) {
+    .well{
+        margin-left:200px;
+        margin-right:100px;
+    }
+    #facebook{
+        position: relative;
+        right: 0px !imporant;
+
+    }
+    i{
+        position:relative;
+        left: 5px;
+    }
+    #google{
+        position:relative;
+        left: 100px !important;
+    }
+
+   
 }
 legend{
     color:#808080;
@@ -64,8 +81,7 @@ button{
 
 #facebook{
    position: relative;
-    margin-left: 250px;
-    right: 190px;
+    left: 30px;
     padding-bottom: 50px;
 
 }
@@ -75,5 +91,5 @@ i{
 }
 #google{
     position:relative;
-    left: 60px;
+    left: 50px;
 }
