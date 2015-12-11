@@ -23,7 +23,6 @@ header
                                     h5(ng-repeat="r in [0,1,2,3,4,5,6,7,8,9]") {{item.exercises[i].reps[r]}}
                                 p {{item.owner}}
                                 a(href="/#/workout/{{item._id}}/edit")
-                                    button.btn.btn-primary(ng-show="identity.currentUser.username == item.owner") Edit
                                 button.btn.btn-primary(ng-hide="identity.currentUser.username == item.owner", ng-click="download()") Download
                                 button.btn.btn-primary(ng-show="identity.currentUser.username == item.owner", ng-click="share()") Share
                                 button.btn.btn-danger(ng-show="identity.currentUser.username == item.owner" ng-click="delete()") Delete

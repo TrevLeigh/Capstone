@@ -18,13 +18,13 @@ html(ng-app='app')
                         a.navbar-brand(ng-show="identity.isAuthenticated()" href="/#/home") Single Point
                         ul.nav.navbar-nav
                             li
-                                a(ng-show="identity.isAuthenticated()" href="/#/home") Home
+                                a(ng-show="identity.isAuthenticated()" href="/#/home" class="item") Home
                             li
-                                a(ng-show="identity.isAuthenticated()" href="/#/exercises") Exercises
+                                a(ng-show="identity.isAuthenticated()" href="/#/exercises" class="item") Exercises
                             li
-                                a(ng-show="identity.isAuthenticated()" href="/#/workouts") Workouts
+                                a(ng-show="identity.isAuthenticated()" href="/#/workouts" class="item") Workouts
                             li
-                                a(ng-show="identity.isAuthenticated()" href="/#/regimens") Regimens
+                                a(ng-show="identity.isAuthenticated()" href="/#/regimens" class="item") Regimens
                     .navbar-collapse.collapse
                         ul.nav.navbar-nav.navbar-right
                             li 

@@ -29,15 +29,21 @@ div{
 }
 
 section{
-    border: 1px solid #fff;
+    background-color: #fff;
+    color: #000;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
     float:left;
     padding-right: 50px;
-    height: 230px;
+    height: 250px;
+    width: 330px;
     position: relative;
     left: 50px;
-    text-align: center;
     margin-left: 30px;
     margin-bottom: 30px;
+    top: 50px;
+    opacity: .8;
+    
 }
 
 section h1{
@@ -54,17 +60,109 @@ section h4{
     left: 25px;
 }
 
-section.sixthSection{
-    position: relative;
-}
-
-section.seventhSection{
-    position: relative;
-
+#today{
+    background-color:#004887;
 }
 
 div.day{
-    border-bottom: solid 1px #fff;
-    position:relative;
-    left: 25px;
+    opacity: 1;
+    position: relative;
+    border-bottom: 1px solid #fff;
+    background-color: #87000C;
+    width: 330px;
+    bottom: 70px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    
 }
+
+section h3,h4{
+    position:relative;
+    bottom: 70px;
+}
+
+
+section.todaySection{
+    opacity: 1;
+}
+
+@media only screen and (min-width : 992px){
+  section.fifthSection{
+    position:relative;
+    top: 100px;
+}
+
+section.sixthSection{
+    position:relative;
+    top: 100px;
+}
+
+section.seventhSection{
+    position:relative;
+    top: 100px;
+}
+   
+
+}
+
+
+@media only screen and (min-width : 768px) {
+    section.secondSection{
+        position:relative;
+        top: 85px;
+    }
+    section.thirdSection{
+        position:relative;
+        top: 85px;
+    }
+    section.fourthSection{
+        position:relative;
+        top: 120px;
+    }
+     section.fifthSection{
+        position:relative;
+        top: 120px;
+    }
+
+    section.sixthSection{
+        position:relative;
+        top: 150px;
+    }
+
+    section.seventhSection{
+        position:relative;
+        top: 150px;
+    }
+   
+}
+
+
+@media only screen and (min-width : 992px) {
+    section.secondSection{
+        position:relative;
+        top: 50px;
+    }
+    section.thirdSection{
+        position:relative;
+        top: 50px;
+    }
+    section.fourthSection{
+        position:relative;
+        top: 50px;
+    }
+    section.fifthSection{
+        position:relative;
+        top: 100px;
+    }
+
+    section.sixthSection{
+        position:relative;
+        top: 100px;
+    }
+
+    section.seventhSection{
+        position:relative;
+        top: 100px;
+    }
+}
+

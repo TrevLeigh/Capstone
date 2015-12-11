@@ -1,7 +1,5 @@
-.navbar-inverse > .active{
-    color: #000;
-    background: #FFF;
-}
+@import url(https://fonts.googleapis.com/css?family=Doppio+One);
+
 li{
     display:inline;
 }

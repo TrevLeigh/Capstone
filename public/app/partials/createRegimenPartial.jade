@@ -43,10 +43,10 @@ html
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
                                 select.form-control(name="tuesdayWorkout", type="String", ng-model="tuesdayWorkout", required)
-                                    option(ng-repeat="w in data", value="{{w._id}}") {{w.name}}
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
                     fieldset
-                        legend Wedensday
+                        legend Wednesday
                         .form-group
                             label.col-md-2.control-label(for="date") Date To Complete:
                             .col-md-10
@@ -56,7 +56,7 @@ html
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
                                 select.form-control(name="wedensdayWorkout", type="String", ng-model="wedensdayWorkout", required)
-                                    option(ng-repeat="w in data", value="{{w._id}}") {{w.name}}
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
                     fieldset
                         legend Thursday
@@ -69,7 +69,7 @@ html
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
                                 select.form-control(name="thursday@orkout", type="String", ng-model="thursdayWorkout", required)
-                                    option(ng-repeat="w in data", value="{{w._id}}") {{w.name}}
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
                     fieldset
                         legend Friday
@@ -82,7 +82,7 @@ html
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
                                 select.form-control(name="fridayWorkout", type="String", ng-model="friWorkout", required)
-                                    option(ng-repeat="w in data",value="{{w._id}}") {{w.name}}
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
                     fieldset
                         legend Saturday
@@ -95,7 +95,7 @@ html
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
                                 select.form-control(name="saturdayWorkout", type="String", ng-model="saturdayWorkout", required)
-                                    option(ng-repeat="w in data",value="{{w._id}}") {{w.name}}
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
                     fieldset
                         legend Sunday 
@@ -108,7 +108,7 @@ html
                             label.col-md-2.control-label(for="workouts") Select Workout:
                             .col-md-10
                                 select.form-control(name="sundayWorkout", type="String", ng-model="sundayWorkout", required)
-                                    option(ng-repeat="w in data",value="{{w._id}}") {{w.name}}
+                                    option(ng-repeat="w in data", ng-show="identity.currentUser.username == w.owner",value="{{w._id}}") {{w.name}}
                             .col-md-10(id="workouts")
                         .form-group
                             .col-md-10.cold-md-offset-2

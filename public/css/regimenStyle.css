@@ -19,3 +19,44 @@ body{
     background-color: #808080;
     border:none;
 }
+.btn-primary:hover{
+    background-color:#87000C; 
+}
+legend{
+    color: #fff;
+}
+
+.well{
+    position:relative;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #000;
+    border: none;
+}
+
+ a:visited, a:link, a:active{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+#regimens{
+    margin-left: 200px;
+    margin-right: 300px;
+    position:relative;
+    top: 60px;
+}
+
+#regimens:hover{
+    background-color: #87000C;
+}
+
+#aRegimens{
+    position: relative;
+    bottom: 130px;
+}
+
+p{
+    color:#808080;
+}

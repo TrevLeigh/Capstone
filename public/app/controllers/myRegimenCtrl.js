@@ -31,176 +31,6 @@ angular.module('app').controller('myRegimenCtrl',function($scope,myNotifier,$htt
     }
     
     
-    $scope.addMonWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[0]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "modal" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    
-    $scope.addTuesWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[1]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "input" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("max",data.exercises[0].reps[i]);
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    $scope.addWedWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[2]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "input" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("max",data.exercises[0].reps[i]);
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    $scope.addThurWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[3]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "input" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("max",data.exercises[0].reps[i]);
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    $scope.addFriWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[4]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "input" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("max",data.exercises[0].reps[i]);
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    $scope.addSatWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[5]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "input" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("max",data.exercises[0].reps[i]);
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    $scope.addSunWorkoutFields = function(){
-         $http.get('/api/regimens/' + myIdentity.currentUser.regimen).success(function(response){
-            $http.get('/api/workouts/' + response.workouts[6]).success(function(data){
-                var number = data.exercises[0].sets;
-                var modalInput = document.getElementById("modal");
-                for(i=0;i<number;i++){
-                    var input = document.createElement("input");
-                    input.setAttribute("ng-model", "input" +i);
-                    input.setAttribute("min",1);
-                    input.setAttribute("class", "form-control");
-                    input.setAttribute("max",data.exercises[0].reps[i]);
-                    input.setAttribute("type","Number");
-                    
-                    modalInput.appendChild(input);
-                    
-                    modalInput.appendChild(document.createElement("br"));
-                    
-                    $compile(modalInput)($scope);
-                }
-                
-            });
-        });
-    }
-    
-    
-    
     $scope.getRegimens = function(){
         $http.get('/api/regimens/').success(function(response){
             $scope.d = response;
@@ -210,6 +40,7 @@ angular.module('app').controller('myRegimenCtrl',function($scope,myNotifier,$htt
     $scope.getSingleRegimen = function(){
         $http.get('/api/regimens/' + $routeParams.id).success(function(response){
             $scope.item = response;
+            console.log($scope.item.endDate[0]);
         });
     }
 
@@ -239,6 +70,8 @@ angular.module('app').controller('myRegimenCtrl',function($scope,myNotifier,$htt
             $scope.x = response;
         });
     }
+    
+    
     $scope.mondayRegimen = function(){
         $http.get('/api/users/'+myIdentity.currentUser._id).success(function(user){
             $http.get('/api/regimens/' + user.regimen).success(function(response){
@@ -311,6 +144,24 @@ angular.module('app').controller('myRegimenCtrl',function($scope,myNotifier,$htt
         });
     }
     
+    $scope.todayRegimen = function(){
+            $scope.d = new Date();
+            $scope.day = $scope.d.getDay();
+            $http.get('/api/users/'+myIdentity.currentUser._id).success(function(user){
+                $http.get('/api/regimens/' + user.regimen).success(function(response){
+                    if($scope.day !== 0){
+                        $http.get('/api/workouts/' + response.workouts[$scope.day - 1]).success(function(data){
+                            $scope.today = data;
+                    });
+                    }else{
+                       $http.get('/api/workouts/' + response.workouts[6]).success(function(data){
+                            $scope.today = data;
+                    });  
+                    }
+            });
+        });
+    }
+    
     $scope.enterData = function(){     
        $http.get('/api/users/'+myIdentity.currentUser._id).success(function(user){
             $http.put('/api/regimens/' + user.regimen+'/add',{
@@ -338,6 +189,7 @@ angular.module('app').controller('myRegimenCtrl',function($scope,myNotifier,$htt
     
     $scope.mstep = 1;
     
+    
     $scope.getCurrentDate();
     $scope.getSingleRegimen();
     $scope.getRegimens();
@@ -350,6 +202,7 @@ angular.module('app').controller('myRegimenCtrl',function($scope,myNotifier,$htt
     $scope.fridayRegimen();
     $scope.saturdayRegimen();
     $scope.sundayRegimen();
+    $scope.todayRegimen();
     $scope.i =[$scope.myValues];
     
 });

@@ -11,15 +11,14 @@ html
         
     body
         
-        .container
-            .well  
+        .container  
                 form.form-horizontal(name="regimenForm")
                     fieldset    
                         legend Regimens
-                        .form-group
-                            div(ng-repeat="e in d" ng-show="identity.currentUser.username == e.owner")
-                                a(href="/#/regimens/{{e._id}}")
+                        .form-group(ng-repeat="e in d")
+                            a(href="/#/regimens/{{e._id}}" id="aRegimens")
+                                div.well(id="regimens" ng-show="identity.currentUser.username == e.owner")
                                     h2 {{e.name}}
-                                p {{e.owner}}
+                                    p {{e.owner}}
                 a(href="/#/regimen/create")
                     button.btn.btn-primary Create Regimen

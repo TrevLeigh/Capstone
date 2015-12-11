@@ -17,12 +17,21 @@ html
             
         
         div.regimen 
+            section.todaySection
+                div.day(id="today")
+                    h1 Today
+                h3 {{today.exercises[0].exercise}}
+                h4 Set: {{today.exercises[0].sets}}
+                h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{today.exercises[0].reps[i]}}
+                
             section.firstSection
                 div.day
                     h1 Monday
                 h3 {{mon.exercises[0].exercise}}
                 h4 Set: {{mon.exercises[0].sets}}
+                h4 {{item}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{mon.exercises[0].reps[i]}}
+                
             section.secondSection
                 div.day
                     h1 Tuesday
@@ -32,16 +41,18 @@ html
                 
             section.thirdSection
                 div.day
-                    h1 Wedensday
+                    h1 Wednesday
                 h3 {{wed.exercises[0].exercise}}
                 h4 Set: {{wed.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{wed.exercises[0].reps[i]}}
+                
             section.fourthSection
                 div.day
                     h1 Thursday
                 h3 {{thur.exercises[0].exercise}}
                 h4 Set: {{thur.exercises[0].sets}}
                 h4(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]") {{thur.exercises[0].reps[i]}}
+                
             section.fifthSection
                 div.day
                     h1 Friday

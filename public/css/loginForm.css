@@ -39,6 +39,16 @@ legend{
     top: 5px;
 }
 
+#register{
+    position: relative;
+    left: 120px;
+}
+
+p{
+    position: relative;
+    top: 30px;
+}
+
 button{
     background-color: #000;
     color: #fff;
@@ -54,7 +64,9 @@ button{
 
 #facebook{
    position: relative;
-    left: 200px;
+    margin-left: 250px;
+    right: 190px;
+    padding-bottom: 50px;
 
 }
 i{
@@ -63,5 +75,5 @@ i{
 }
 #google{
     position:relative;
-    left: 200px;
+    left: 60px;
 }

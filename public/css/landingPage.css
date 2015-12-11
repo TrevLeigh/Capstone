@@ -38,6 +38,8 @@ legend{
     top: 150px;
     opacity: .9;
     text-align: center;
+    margin-left: 200px;
+    margin-right: 100px;
 }
 
 .form-group input{

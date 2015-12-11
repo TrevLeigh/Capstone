@@ -10,23 +10,22 @@ html
         
     body
         
-        .container
-            .well  
+        .container 
                 form.form-horizontal(name="exerciseForm")
                     fieldset    
                         legend Exercises
-                        a(href="/#/exercises/create")
+                        a(href="/#/exercises/create" id="create")
                             button.btn.btn-primary Create
                         .form-group
-                            div.well(ng-repeat="e in data")
-                                a(href="/#/exercises/{{e._id}}")
+                            a(href="/#/exercises/{{e._id}}")
+                                div.well(ng-repeat="e in data" id="exercises")
                                     h3 {{e.name}}
-                                p {{e.equipment}}
-                                a(href="/#/exercises/{{e._id}}/edit",ng-show="identity.currentUser.username == '{{e.owner}}'")
-                                    button.btn.btn-primary
-                                        span.glyphicon.glyphicon-pencil
-                                button.btn.btn-danger(ng-show="identity.currentUser.username == '{{e.owner}}'", ng-click="delete(e._id)")
-                                    span.glyphicon.glyphicon-trash
+                                    p {{e.equipment}}
+                                    a(href="/#/exercises/{{e._id}}/edit",ng-show="identity.currentUser.username == '{{e.owner}}'")
+                                        button.btn.btn-primary
+                                            span.glyphicon.glyphicon-pencil
+                                    button.btn.btn-danger(ng-show="identity.currentUser.username == '{{e.owner}}'", ng-click="delete(e._id)")
+                                        span.glyphicon.glyphicon-trash
     
         
         

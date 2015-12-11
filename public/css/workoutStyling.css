@@ -20,3 +20,31 @@ body{
     border:none;
 }
 
+.btn-primary:hover{
+    background-color:#87000C; 
+}
+
+legend{
+    color: #fff;
+}
+
+.well{
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #000;
+    border: none;
+}
+
+ a:visited, a:link, a:active{
+    text-decoration: none;
+    color: #fff;
+}
+
+#workouts{
+    margin-left: 200px;
+    margin-right: 300px;
+}
+
+#workouts:hover{
+    background-color: #87000C;
+}

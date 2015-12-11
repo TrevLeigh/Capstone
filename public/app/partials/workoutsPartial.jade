@@ -13,16 +13,14 @@ html
     body
         
         .container
-            .well  
-                form.form-horizontal(name="workoutForm")
-                    fieldset    
-                        legend Workouts
+            form.form-horizontal(name="workoutForm")
+                fieldset    
+                    legend Workouts
                         .form-group
-                            div.well(ng-repeat="e in data" ng-show="identity.currentUser.username == e.owner")
+                            div.well(ng-repeat="e in data" ng-show="identity.currentUser.username == e.owner" id="workouts")
                                 a(href="/#/workouts/{{e._id}}")
                                     h2 {{e.name}}
-                                h3(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")      {{e.exercises[i].exercise}}
-                                p {{e.owner}}
-                a(href="/#/workout/create")
-                    button.btn.btn-primary Create Workout
-        
+                                    h3(ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]")      {{e.exercises[i].exercise}}
+                                    p {{e.owner}}
+                    a(href="/#/workout/create")
+                        button.btn.btn-primary Create Workout

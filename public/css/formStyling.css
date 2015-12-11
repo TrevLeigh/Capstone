@@ -7,24 +7,31 @@ nav{
     background-color: #000;
 }
 
-.navbar-inverse > .active{
-    color: #000;
-    background: #FFF;
+legend{
+    color:#808080;
 }
 body{
     background-color: #363636;
 }
+.well{
+    background-color: #000;
+    border: none;
+    color: #808080;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.form-control{
+    margin-right: 50px;
+}
+
 .btn-primary{
-
+    background-color: #808080;
+    border:none;
 }
-legend{
-
-}
-
-.form-group input{
-
+.btn-primary:hover{
+    background-color:#87000C; 
 }
 
-button{
 
-}
+

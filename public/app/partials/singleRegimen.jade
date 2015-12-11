@@ -12,15 +12,20 @@ html
         body
 
             .container
-                .well  
+                .well(id="single")  
                     form.form-horizontal(name="regimenForm")
                         fieldset    
                             legend Regimen
-                                div
-                                    h1 {{item.name}}
-                                    h2 {{item.workouts}}
+                                h1 {{item.name}}
+                                h2 Monday: {{mon.exercises[0].exercise}}
+                                h2 Tuesday: {{tues.exercises[0].exercise}}
+                                h2 Wednesday: {{wed.exercises[0].exercise}}
+                                h2 Thursday: {{thur.exercises[0].exercise}}
+                                h2 Friday: {{friday.exercises[0].exercise}}
+                                h2 Saturday: {{sat.exercises[0].exercise}}
+                                h2 Sunday: {{sun.exercises[0].exercise}}
 
-                                    button.btn.btn-primary(ng-click="set()") Set
-                                    button.btn.btn-danger(ng-click="delete()") Delete
+                                button.btn.btn-primary(ng-click="set()") Set
+                                button.btn.btn-danger(ng-click="delete()") Delete
 
 

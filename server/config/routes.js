@@ -1,4 +1,3 @@
-
 var auth = require('./auth'),
     users = require('../controllers/users'),
     exercises = require('../controllers/exercises'),

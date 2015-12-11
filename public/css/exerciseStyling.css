@@ -19,3 +19,36 @@ body{
     background-color: #808080;
     border:none;
 }
+.btn-primary:hover{
+    background-color:#87000C; 
+}
+
+#create{
+    position:relative;
+    bottom: 10px;
+}
+
+legend{
+    color: #fff;
+}
+
+.well{
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #000;
+    border: none;
+}
+
+#exercises{
+    margin-left: 200px;
+    margin-right: 300px;
+}
+
+#exercises:hover{
+    background-color: #87000C;
+}
+
+ a:visited, a:link, a:active{
+    text-decoration: none;
+    color: #fff;
+}
