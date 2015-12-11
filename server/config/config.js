@@ -18,8 +18,8 @@ module.exports = {
         'callbackURL'   : 'https://singlepoint.herokuapp.com/auth/facebook/callback'
     },
     'googleAuth' : {
-        'clientID'      : '382954964029-pj4p6t3fqjfj37f4fpi9ddebbo9r8jjp.apps.googleusercontent.com ',
-        'clientSecret'  : '_AMopx8BDOIj0lA_1_lE9Cjr',
+        'clientID'      : '715319095289-ln4ima5lf4fe7f5fhe1lbbqojjvpu1m0.apps.googleusercontent.com',
+        'clientSecret'  : 'R_Yak1YphnvGcZsLL74jUG1Q ',
         'callbackURL'   : 'http://singlepoint.herokuapp.com/auth/google/callback'
     }
 };
