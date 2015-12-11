@@ -20,6 +20,6 @@ module.exports = {
     'googleAuth' : {
         'clientID'      : '715319095289-ln4ima5lf4fe7f5fhe1lbbqojjvpu1m0.apps.googleusercontent.com',
         'clientSecret'  : 'R_Yak1YphnvGcZsLL74jUG1Q ',
-        'callbackURL'   : 'https://singlepoint.herokuapp.com/oauth2callback'
+        'callbackURL'   : 'https://singlepoint.herokuapp.com/auth/google/callback'
     }
 };
